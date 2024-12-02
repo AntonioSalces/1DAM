@@ -1,0 +1,10 @@
+Entidad --> cualquier cosa de la que yo quiera guardar información y posteriormente se nos va a convertir en tabla. A todas la entidades obligatoriamente hay que ponerle un atributo llamado clave primaria y que 
+Atributo --> cada una de las características que quiero almacenar en cada entidad que se van a convertir en campos de la tabla.
+
+Relación --> asociación entre dos entidades.
+
+Clave primaria --> es un identificador único, es decir, su valor me va a identificar unívocamente una fila de la tabla. La clave primaria nunca admite nulos ni se puede repetir.
+
+Clave candidata --> entidad que me puede servir como clave primaria.
+
+Clave alternativa --> atributos candidatos que no hemos elegido como clave primaria.

@@ -1,0 +1,2 @@
+PREGUNTAS EXAMEN
+Orden desarrollo de software: análisis -> diseño -> codificación -> pruebas -> documentación -> explotación -> mantenimiento

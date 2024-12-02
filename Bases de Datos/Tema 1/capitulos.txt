@@ -1,0 +1,40 @@
+2. FICHERO
+	Estructura de datos que reside en memoria secundaria, compuesta por un conjunto de informaciones estructuradas en unidades de acceso llamadas registros, todos del mismo tipo y en número indeterminado
+
+3. DIFERENCIA ENTRE REGISTRO LÓGICO Y REGISTRO FÍSICO
+	· Un registro lógico es cada uno de los componentes del archivo, conteniendo un conjunto de informaciones a la que se acceden y se tratan de manera unitaria. Está constituido por uno o más elementos denominadas campos que pueden ser de diferentes tipos
+	· Un registro físico o bloque corresponde a la cantidad de información que se transfiere físicamente en cada operación de acceso (lectura o escritura).
+
+4. ORGANIZACIÓN DE LOS FICHEROS
+	Como se organizan los registros dentro de un archivo dependiendo del uso y del soporte utilizado.
+
+5 y 6. CLASIFICACIÓN DE LOS FICHEROS DEPENDIENDO DE LA ORGANIZACIÓN
+	· Secuencial --> los registros ocupan posiciones consecutivas de memoria, y sólo se puede acceder a ellos de uno en uno a partir del primero. No se pueden hacer operaciones de escrituras mientras se está leyendo, ni operaciones de lectura mientras se está escribiendo.
+	· Directa --> las informaciones se colocan y se acceden aleatoriamente mediante su posición, es decir, indicando el lugar relativo que ocupan dentro del conjunto de posiciones posibles. Esta posición la consigue el informático mediante su clave. Tiene el inconveniente de que puede surgir huecos
+	· Indexada --> consta de tres áreas:
+		· Primaria --> contiene los registros de datos, clasificados en orden ascendente por su clave
+		· De índices --> archivo secuencial creado por el sistema, en el que cada registro establece una división en el área primaria, y contiene la dirección del comienzo del segmento y la clave más alta del mismo.
+		· De excedentes --> para añadir nuevos registros que no pueden ser colocados en el área primaria cuando se produce una actualización el archivo. Se van almacenando secuencialmente
+
+7. FUNCIÓN ALEATORIZACIÓN O HASHING
+	Nos permite calcular la posición de cualquier registro con organización directa a partir del valor de su clave, facilitando el acceso de forma rápida
+
+8. MODO DE ACCESO A UN FICHERO
+	La forma en que un dispositivo que maneja un soporte de información, que contiene un archivo, se posiciona en un determinado lugar del mismo para realizar una operación de lectura o de escritura de un registro. Los principales tipos de acceso son el acceso secuencial y acceso directo, decididos por el programador en función del tipo de organización
+
+9. POSIBLES MODOS DE ACCESO PARA CADA TIPO DE ORGANIZACIÓN DE UN FICHERO
+	· Organización secuencial --> modo de acceso secuencial
+	· Organización directa --> modo de acceso directo o secuencial. El modo de acceso directo la realiza el programador mediante una función de aleatorización
+	· Organización indexada --> modo de acceso secuencial para buscar el bloque, directo mediante el índice, y secuencial después. EL modo de acceso directo lo hace el propio Sistema Operativo
+
+10. MODOS DE ACCCESO DE LOS FICHEROS
+	. Secuencial --> lees los datos uno tras otro hasta encontrar el deseado
+	· Directo --> vas directo al dato sin tener que consultar todos los anteriores
+
+11. CLASIFICACIÓN DE FICHEROS SEGÚN SU CONTENIDO.
+	· Ficheros de texto --> solo almacenan texto y guardado en código ASCII
+	· Fichero binario --> no son de texto y requieren de un formato para ser interpretados
+	Los ficheros en una base de datos relacional son binarios
+
+12. CINTA MAGNÉTICA
+	Es uno de los soporte de almacenamiento más antiguos y se siguen utilizando para backup, con ventajas como su barato coste, la duración y la seguridad, pero desventajas como el acceso secuencial

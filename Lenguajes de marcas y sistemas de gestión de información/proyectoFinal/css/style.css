@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'StrayKids';
+    src: url('../fonts/straykid/Straykid.otf') format('truetype'); /* Asegúrate de que la ruta sea correcta */
+}
+
+@font-face {
+    font-family: 'hola';
+    src: url('../fonts/sweety_rasty/Sweety\ Rasty.otf') format('opentype');
+}
+
+p {
+    font-family: 'StrayKids';
+    font-size: 50px;
+}
