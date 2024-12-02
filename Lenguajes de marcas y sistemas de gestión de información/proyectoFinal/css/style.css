@@ -8,7 +8,48 @@
     src: url('../fonts/sweety_rasty/Sweety\ Rasty.otf') format('opentype');
 }
 
-p {
-    font-family: 'StrayKids';
+body {
+    background-image: url('../img/Background.jpg'); /* Verifica que el nombre del archivo y la ruta sean correctos */
+    background-size: cover; /* Esto hará que la imagen cubra toda la pantalla */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-attachment: fixed; /* Hace que la imagen de fondo permanezca fija */
     font-size: 50px;
+}
+
+header {
+    color: black;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+#titulo{
+    width: 250px;
+    height: auto;
+}
+
+nav {
+    background-color: #333;
+    overflow: hidden;
+    display: flex; justify-content: center;
+    background: url(../img/backgroundNav.jpg);
+}
+
+nav a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    font-family: "StrayKids";
+    background-color: rgba(118, 18, 18, 0.8);
+}
+
+nav a:hover {
+    background-color: #ddd;
+    color: black;
 }

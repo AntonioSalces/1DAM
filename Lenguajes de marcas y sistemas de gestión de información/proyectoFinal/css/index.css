@@ -1,0 +1,14 @@
+#principal{
+    display: flex;
+}
+
+#imgPrincipal{
+    height: auto;
+    width: 1000px;
+}
+
+#texto{
+    color: rgb(218, 208, 208);
+    font-family: "StrayKids";
+    font-size: 60px;
+}
