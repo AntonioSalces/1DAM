@@ -24,12 +24,20 @@ public class StringUtils {
     public static int numConsonantes(String palabra){
         int contConsonantes = 0;
         char letra = ' ';
-        for (int i = 1; i <= palabra.length(); i++){
+        for (int i = 0; i <= palabra.length()-1; i++){
             letra = palabra.toLowerCase().charAt(i);
-            if (letra == 'a' || letra == 'e' || letra == 'i' || letra == 'o' || letra == 'u'){
+            if (letra != 'a' && letra != 'e' && letra != 'i' && letra != 'o' && letra != 'u'){
                 contConsonantes++;
             }
         }
         return contConsonantes;
+    }
+
+    public static boolean palabraMayuscula(String palabra){
+        if (palabra.toUpperCase() == palabra) {
+            return true;
+        }else{
+            return false;
+        }
     }
 }
