@@ -41,6 +41,7 @@ nav {
     display: flex; /* Utiliza Flexbox para alinear los elementos dentro de la barra */
     justify-content: center; /* Centra horizontalmente los enlaces de navegación */
     background: url(../img/backgroundNav.jpg); /* Imagen de fondo para la barra de navegación */
+    margin-bottom: 10px;
 }
 
 /* Estilo para los enlaces de navegación */
@@ -60,4 +61,18 @@ nav a {
 nav a:hover {
     background-color: #ddd; /* Cambia el fondo a un color claro cuando se pasa el ratón */
     color: black; /* Cambia el color del texto a negro cuando se pasa el ratón */
+}
+
+
+.texto {
+    color: rgb(218, 208, 208); /* Color del texto */
+    font-family:'Courier New', Courier, monospace; /* Familia tipográfica */
+    font-size: 30px; /* Tamaño de la fuente */
+    clear: both; /* Limpia los elementos flotantes a izquierda y derecha */
+    text-align: center; /* Centra el texto horizontalmente */
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 25px;
+    background-color: rgba(119, 0, 0, 0.7);
+    box-shadow: 0px 0px 100px rgba(212, 175, 55, 0.5);
 }

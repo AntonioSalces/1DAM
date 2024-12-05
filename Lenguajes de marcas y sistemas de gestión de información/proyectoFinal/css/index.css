@@ -2,6 +2,7 @@
     display: flex; /* Define que el contenedor principal usará Flexbox */
     box-sizing: border-box; /* Incluye el padding y el border en el tamaño total del elemento */
     width: 100%; /* El contenedor ocupa el 100% del ancho disponible */
+    margin-bottom: 100px;
 }
 
 #imgPrincipal {
@@ -9,6 +10,7 @@
     height: auto; /* Mantiene la proporción de la imagen */
     width: 1000px; /* Ancho fijo de la imagen */
     float: right; /* Flota la imagen a la derecha del contenedor */
+    margin-bottom: 50px;
 }
 
 #divPrincipal {
@@ -39,10 +41,27 @@
     max-width: 50%; /* El ancho máximo del contenedor será el 50% del ancho del contenedor padre */
 }
 
-.texto {
-    color: rgb(218, 208, 208); /* Color del texto */
-    font-family: "korean"; /* Familia tipográfica */
-    font-size: 30px; /* Tamaño de la fuente */
-    clear: both; /* Limpia los elementos flotantes a izquierda y derecha */
-    text-align: center; /* Centra el texto horizontalmente */
+
+#columnas{
+    display: flex;
+    justify-content: space-around;
+}
+
+.vertical{
+    width: 20%;
+    height: auto;
+}
+
+#textoColumna{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#textoColumna img{
+    width: 100%;
+    margin: 10px;
+    height: auto;
 }
