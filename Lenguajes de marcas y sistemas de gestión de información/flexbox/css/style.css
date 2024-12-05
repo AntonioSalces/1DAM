@@ -13,7 +13,7 @@ body{
     flex-flow: row wrap;
     width: 80%;
     margin: 0 auto;
-    justify-content: space-between;
+    justify-content: center;
     /* comentamos la linea de la altura de las cajas y añadimos altura al flex-container */
     height: 600px;
     /* utilizamos align-items para alinear verticalmente los items */
@@ -31,4 +31,22 @@ body{
     line-height: 100px;
     margin: 5px;
     overflow: hidden;
+}
+
+#c1{
+    background-color: aqua;
+    order: 3;
+    flex-shrink: 1;
+}
+
+#c2{
+    background-color: seagreen;
+    order: 1;
+    flex-shrink: 4;
+}
+
+#c3{
+    background-color:blueviolet;
+    order: 2;
+    flex-shrink: 1;
 }
