@@ -7,8 +7,9 @@ table {
 th, td {
     border: 1px solid white;
     padding: 8px;
-
+    text-align: center;
 }
+
 th {
     background-color: #f2f2f2;
     text-align: center;
@@ -29,6 +30,11 @@ li{
     text-align: center;
     color: white;
     font-size: 30px;
+}
+
+ol{
+    text-align: center;
+    margin-block-start: 20px;
 }
 
 #goLive{
