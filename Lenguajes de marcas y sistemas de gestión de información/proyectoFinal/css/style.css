@@ -13,6 +13,15 @@
     src: url('../fonts/korean_calligraphy/Korean_Calligraphy.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'korea';
+    src: url('../fonts/apple_korea/Apple\ Korea.otf') format('opentype');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&family=Questrial&display=swap');
+
 /* Define el estilo general del cuerpo */
 body {
     background-image: url('../img/Background.jpg'); /* Selección de imagen de fondo */
@@ -52,7 +61,7 @@ nav a {
     text-align: center; /* Centra el texto dentro de los enlaces */
     padding: 14px 20px; /* Espacio interno en los enlaces */
     text-decoration: none; /* Elimina el subrayado de los enlaces */
-    font-family: "korean"; /* Aplica la fuente personalizada 'StrayKids' */
+    font-family: "Caudex", serif; /* Aplica la fuente personalizada 'StrayKids' */
     font-size: 30px; /* Tamaño de letra para la barra de navegación */
     background-color: rgba(118, 18, 18, 0.8); /* Fondo rojo oscuro semitransparente */
 }
@@ -66,7 +75,7 @@ nav a:hover {
 
 .texto {
     color: rgb(218, 208, 208); /* Color del texto */
-    font-family:'Courier New', Courier, monospace; /* Familia tipográfica */
+    font-family: "Caudex", serif; /* Familia tipográfica */
     font-size: 30px; /* Tamaño de la fuente */
     clear: both; /* Limpia los elementos flotantes a izquierda y derecha */
     text-align: center; /* Centra el texto horizontalmente */
@@ -75,4 +84,5 @@ nav a:hover {
     padding: 25px;
     background-color: rgba(119, 0, 0, 0.7);
     box-shadow: 0px 0px 100px rgba(212, 175, 55, 0.5);
+    overflow: hidden;
 }

@@ -1,0 +1,25 @@
+.video{
+    display: flex;
+    width: 50%;
+    height: auto ;
+    float: left;
+    justify-content: center;
+    margin-bottom: 50px;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+}
+
+video{
+    width: 600px;
+    height: auto;
+}
+
+#iframe{
+    display: flex;
+    justify-content: center;
+    clear: both;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+}
