@@ -24,61 +24,61 @@
 
 /* Define el estilo general del cuerpo */
 body {
-    background-image: url('../img/Background.jpg'); /* Selección de imagen de fondo */
-    background-size: cover; /* Esto hará que la imagen cubra toda la pantalla */
-    background-attachment: fixed; /* Hace que la imagen de fondo permanezca fija */
+    background-image: url('../img/Background.jpg'); 
+    background-size: cover; 
+    background-attachment: fixed;
 }
 
 /* Estilo para el encabezado */
 header {
-    color: black; /* Color del texto dentro del encabezado */
-    display: flex; /* Hace que el encabezado use Flexbox */
-    justify-content: center; /* Centra el contenido horizontalmente */
-    background-color: rgba(0, 0, 0, 0.3); /* Fondo negro semitransparente */
+    color: black; 
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.3); 
 }
 
 /* Estilo para la imagen del logo en el encabezado */
 #titulo {
-    width: 250px; /* Ancho fijo para la imagen del logo */
-    height: auto; /* Mantiene la proporción de la imagen */
+    width: 250px; 
+    height: auto; 
 }
 
 /* Estilo para la barra de navegación */
 nav {
-    background-color: #333; /* Fondo gris oscuro para la barra de navegación */
-    overflow: hidden; /* Oculta el contenido desbordado */
-    display: flex; /* Utiliza Flexbox para alinear los elementos dentro de la barra */
-    justify-content: center; /* Centra horizontalmente los enlaces de navegación */
-    background: url(../img/backgroundNav.jpg); /* Imagen de fondo para la barra de navegación */
+    background-color: #333; 
+    overflow: hidden; 
+    display: flex; 
+    justify-content: center; 
+    background: url(../img/backgroundNav.jpg);
     margin-bottom: 10px;
 }
 
 /* Estilo para los enlaces de navegación */
 nav a {
-    float: left; /* Flota los enlaces a la izquierda */
-    display: block; /* Hace que los enlaces se comporten como bloques */
-    color: white; /* Color del texto de los enlaces */
-    text-align: center; /* Centra el texto dentro de los enlaces */
-    padding: 14px 20px; /* Espacio interno en los enlaces */
-    text-decoration: none; /* Elimina el subrayado de los enlaces */
-    font-family: "Caudex", serif; /* Aplica la fuente personalizada 'StrayKids' */
-    font-size: 30px; /* Tamaño de letra para la barra de navegación */
-    background-color: rgba(118, 18, 18, 0.8); /* Fondo rojo oscuro semitransparente */
+    float: left;
+    display: block; 
+    color: white; 
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    font-family: "Caudex", serif;
+    font-size: 30px;
+    background-color: rgba(118, 18, 18, 0.8); 
 }
 
 /* Estilo para los enlaces de navegación en estado hover (el ratón está encima de ellos) */
 nav a:hover {
-    background-color: #ddd; /* Cambia el fondo a un color claro cuando se pasa el ratón */
-    color: black; /* Cambia el color del texto a negro cuando se pasa el ratón */
+    background-color: #ddd; 
+    color: black; 
 }
-
+    
 
 .texto {
-    color: rgb(218, 208, 208); /* Color del texto */
-    font-family: "Caudex", serif; /* Familia tipográfica */
-    font-size: 30px; /* Tamaño de la fuente */
-    clear: both; /* Limpia los elementos flotantes a izquierda y derecha */
-    text-align: center; /* Centra el texto horizontalmente */
+    color: rgb(218, 208, 208); 
+    font-family: "Caudex", serif; 
+    font-size: 30px; 
+    clear: both; 
+    text-align: center; 
     border: 2px solid white;
     border-radius: 10px;
     padding: 25px;

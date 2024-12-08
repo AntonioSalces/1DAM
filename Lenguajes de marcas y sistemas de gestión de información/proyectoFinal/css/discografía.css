@@ -15,8 +15,12 @@ th, td {
 }
 
 th {
-    background-color: #f2f2f2;
     text-align: center;
+    color: rgb(218, 208, 208); 
+    font-size: 30px;
+    font-family: "Caudex", serif; 
+    background-color: rgba(119, 0, 0, 0.7);
+
 }
 
 .album{
@@ -27,9 +31,17 @@ th {
     position: static;
 }
 
+.album:hover{
+    transform: scale(1.1);
+}
+
 p{
-    color: white;
+    color: rgb(218, 208, 208); /* Color del texto */
     font-size: 30px;
+    font-family: "Caudex", serif; /* Familia tipográfica */
+}
+
+th{
 }
 
 li{
