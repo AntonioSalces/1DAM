@@ -1,17 +1,16 @@
 #todos {
-    display: flex; /* Activa Flexbox */
-    flex-wrap: wrap; /* Permite que los elementos se envuelvan a la siguiente línea */
-    justify-content: space-between; /* Espacio entre los elementos */
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-/* Estilo para cada integrante */
 .integrante {
     display: flex;
-    flex: 40%; /* Cada elemento ocupa un 40% del ancho, dejando espacio para el margen */
-    box-sizing: border-box; /* Incluye padding y borde en el cálculo del ancho */
-    padding: 10px; /* Espaciado interno */
-    margin: 5px 0; /* Separación entre los elementos */
-    text-align: justify; /* Justifica el texto */
+    flex: 40%; 
+    box-sizing: border-box;
+    padding: 10px; 
+    margin: 5px 0;
+    text-align: justify;
     margin: 20px;
     align-items: center;
     flex-direction: column;

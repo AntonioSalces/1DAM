@@ -1,44 +1,44 @@
 #principal {
-    display: flex; /* Define que el contenedor principal usará Flexbox */
-    box-sizing: border-box; /* Incluye el padding y el border en el tamaño total del elemento */
-    width: 100%; /* El contenedor ocupa el 100% del ancho disponible */
+    display: flex; 
+    box-sizing: border-box; 
+    width: 100%;
     margin-bottom: 100px;
 }
 
 #imgPrincipal {
-    max-width: 100%; /* La imagen no excederá el ancho de su contenedor */
-    height: auto; /* Mantiene la proporción de la imagen */
-    width: 1000px; /* Ancho fijo de la imagen */
-    float: right; /* Flota la imagen a la derecha del contenedor */
+    max-width: 100%;
+    height: auto;
+    width: 1000px;
+    float: right; 
     margin-bottom: 50px;
 }
 
 #divPrincipal {
-    max-width: 50%; /* El ancho máximo del contenedor será el 50% del ancho del contenedor padre */
-    padding-left: 3%; /* Espacio a la izquierda del contenedor */
-    padding-right: 3%; /* Espacio a la derecha del contenedor */
+    max-width: 50%; 
+    padding-left: 3%;
+    padding-right: 3%;
 }
 
 #vertical {
-    float: left; /* Flota el contenedor a la izquierda */
+    float: left;
 }
 
 #imgVertical {
-    width: 70%; /* La imagen ocupa el 70% del ancho del contenedor padre */
-    height: auto; /* Mantiene la proporción de la imagen */
-    margin-left: auto; /* Auto margen a la izquierda para centrar */
-    margin-right: auto; /* Auto margen a la derecha para centrar */
-    display: block; /* Cambia el elemento a bloque, lo que permite el centrado con los márgenes */
-    align-items: center; /* No tiene efecto aquí, se aplica a contenedores flex */
+    width: 70%; 
+    height: auto; 
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    align-items: center;
 }
 
 #textoImgVertical {
-    display: flex; /* Define que este contenedor usará Flexbox */
-    flex-direction: column; /* Alinea los elementos hijos en una columna */
-    justify-content: center; /* Centra los elementos verticalmente dentro del contenedor */
-    padding-left: 3%; /* Espacio a la izquierda del contenedor */
-    padding-right: 3%; /* Espacio a la derecha del contenedor */
-    max-width: 50%; /* El ancho máximo del contenedor será el 50% del ancho del contenedor padre */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 3%; 
+    padding-right: 3%;
+    max-width: 50%;
 }
 
 
