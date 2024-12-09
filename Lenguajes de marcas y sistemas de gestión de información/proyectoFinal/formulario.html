@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/formulario.css">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <title>Stray Kids♥️</title>
+</head>
+<body>
+    <header><img src="img/logo.png" alt="" id="titulo"></header>
+    <nav>
+        <a href="index.html">Grupo</a>
+        <a href="integrantes.html">Integrantes</a>
+        <a href="discografia.html">Discografía</a>
+        <a href="videosCoreos.html">Videoclips</a>
+        <a href="formulario.html">Formulario</a>
+    </nav>
+
+    <div id="formulario">
+        <form>
+            <!-- Campo de texto obligatorio -->
+            <label for="nombre"><b>Nombre (obligatorio):</b></label><br>
+            <input type="text" id="nombre" name="nombre" required><br><br>
+            <!-- Campo numérico obligatorio -->
+            <label for="edad"><b>Edad (obligatorio):</b></label><br>
+            <input type="number" id="edad" name="edad" required><br><br>
+            <!-- Opciones de radio -->
+            <label><b>Género:</b></label><br>
+            <input type="radio" id="masculino" name="genero" value="masculino">
+            <label for="masculino">Masculino</label><br>
+            <input type="radio" id="femenino" name="genero" value="femenino">
+            <label for="femenino">Femenino</label><br>
+            <input type="radio" id="otro" name="genero" value="otro">
+            <label for="otro">Otro</label><br><br>
+            <!-- Casillas de verificación -->
+            <label><b>Artista favorito:</b></label><br>
+            <input type="checkbox" id="musica" name="intereses" value="Bang Chan">
+            <label for="musica">Bang Chan</label><br>
+            <input type="checkbox" id="deportes" name="intereses" value="Lee Know">
+            <label for="deportes">Lee Know</label><br>
+            <input type="checkbox" id="lectura" name="intereses" value="Changbin">
+            <label for="lectura">Changbin</label><br>
+            <input type="checkbox" id="lectura" name="intereses" value="Hyunjin">
+            <label for="lectura">Hyunjin</label><br>
+            <input type="checkbox" id="lectura" name="intereses" value="Felix">
+            <label for="lectura">Felix</label><br>
+            <input type="checkbox" id="lectura" name="intereses" value="Seungmin">
+            <label for="lectura">Seungmin</label><br>
+            <input type="checkbox" id="lectura" name="intereses" value="I.N.">
+            <label for="lectura">I.N. </label><br>
+            <input type="checkbox" id="lectura" name="intereses" value="Han">
+            <label for="lectura">Han</label><br><br>
+            <!-- Área de texto -->
+            <label for="comentarios"><b>Comentarios:</b></label><br>
+            <textarea id="comentarios" name="comentarios" rows="4" cols="50"></textarea><br><br>
+            <!-- Botón de envío -->
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+
+    <footer>
+        <div id="seccionUno">
+            <h2>Sobre nosotros</h2>
+            <p class="textFooter">Esto es una página para los mayores fans de Stray Kids, con noticias e información diaria sobre ellos</p>
+            <h2>Información de contacto</h2>
+            <p class="textFooter"><b>Dirección:</b> Montalbán de Córdoba (Córdoba).</p>
+            <p class="textFooter"><b>Número de teléfono:</b> 738 82 37 94</p>
+            <p class="textFooter"><b>Email: </b> <a href="mailto:straykidsfan@gmail.com">straykidsfan@gmail.com</a></p>
+        </div>
+
+        <div id="seccionDos">
+            <h2>Social networks</h2>
+            <a href="https://www.instagram.com"><img src="img/footer/instagramIcon.png" alt="instagramIcon" class="icon"></a>
+            <a href="https://x.com/home?lang=es"><img src="img/footer/xIcon.png" alt="instagramIcon" class="icon"></a>
+        </div>
+
+        <div id="seccionTres">
+            <h2>¿Donde nos encontramos?</h2>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12647.845645571986!2d-4.759409800831368!3d37.579526350693314!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6d3fb619d927f7%3A0x1d405785ceaae02d!2zMTQ1NDggTW9udGFsYsOhbiBkZSBDw7NyZG9iYSwgQ8OzcmRvYmE!5e0!3m2!1ses!2ses!4v1733516498912!5m2!1ses!2ses" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" id="mapaFooter"></iframe>
+        </div>
+
+        <div id="seccionCuatro">
+            <h2>Navegación</h2>
+            <a href="index.html"><p>Grupo</p></a>
+            <a href="integrantes.html"><p>Integrantes</p></a>
+            <a href="discografia.html"><p>Discografía</p></a>
+            <a href="videosCoreos.html"><p>Videoclips</p></a>
+            <a href="formulario.html"><p>Formulario</p></a>
+        </div>
+    </footer>
+</body>
+</html>
