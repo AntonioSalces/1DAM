@@ -133,6 +133,16 @@ public class OperacionesMatricesRepaso {
         return mIdentidad;
     }
 
+    private static int[][] traspuesta(int[][] m1){
+        int[][] mTraspuesta = new int[m1.length][m1[0].length];
+        for(int i = 0; i < m1.length; i++){
+            for(int j = 0; j < m1[0].length; j++){
+                mTraspuesta[i][j] = m1[j][i];
+            }
+        }
+        return mTraspuesta;
+    }
+
     public static void main(String[] args) {
         try {
             //Se rellena y se pinta la matriz 1
@@ -211,8 +221,18 @@ public class OperacionesMatricesRepaso {
             System.out.println();
 
             //Se crea una matriz identidad.
+            System.out.println("Matriz identidad:");
             int[][] mIdentidad = matrizIdentidad();
             pintarMatriz(mIdentidad);
+            System.out.println();
+
+            //Método para hacer un matriz traspuesta.
+            int[][] m7 = new int[m1.length][m1[0].length];
+            m7 = traspuesta(m1);
+            System.out.println("Matriz original:");
+            pintarMatriz(m1);
+            System.out.println("Array traspuesta:");
+            pintarMatriz(m7);
         
         } catch (NullPointerException e) {
             System.out.println("Las matrices deben de tener igual medida, y deben de ser cuadradas.");
