@@ -30,8 +30,8 @@ public class Candidato {
             talento = (float)(Math.random());
             suerte = (float)(Math.random());
             float resultadoTotal = (talento*95)+(suerte*5);
-            System.out.println("Talento= " + talento);
-            System.out.println("Suerte= " + suerte);
+            System.out.println("Talento= " + talento*95);
+            System.out.println("Suerte= " + suerte*5);
             System.out.printf("Resultado total: |%f|%n%n", resultadoTotal);
     }
 }
