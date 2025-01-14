@@ -1,0 +1,71 @@
+Respuestas a los Ejercicios de Normalización en Bases de Datos
+
+1. Define Base de Datos Relacional.
+   Una base de datos relacional es una base de datos percibida por el usuario como una colección de relaciones normalizadas de diversos grados que varía con el tiempo. Los sistemas relacionales operan conceptualmente sobre tablas completas de datos mediante la especificación de operaciones sobre ellas.
+
+2. ¿Qué es la Normalización?
+   La normalización es una técnica para agrupar la información de los datos en diferentes conjuntos, de modo que se faciliten los procesos de manipulación y se reduzca la redundancia. Consiste en aplicar una serie de reglas (formas normales) para asegurar que el esquema diseñado tenga un buen comportamiento en cuanto a redundancia, pérdida de información y representación.
+
+3. Define la Primera Forma Normal.
+   Una relación está en Primera Forma Normal (1FN) si se cumple la propiedad de que sus dominios no tienen elementos que a su vez sean conjuntos. Es decir, todos los dominios subyacentes contienen solo valores atómicos (el cruce de una fila con una columna contiene solo un valor).
+
+4. Define Segunda Forma Normal.
+   Una relación está en Segunda Forma Normal (2FN) si está en 1FN y cualquiera de sus atributos no primarios tiene una dependencia funcional plena con la clave primaria. Esto implica que los atributos no primarios no dependen de una parte de la clave primaria en caso de ser compuesta.
+
+5. Define Tercera Forma Normal.
+   Una relación está en Tercera Forma Normal (3FN) si está en 2FN y, además, ninguno de sus atributos no primarios tiene dependencias transitivas respecto de la clave de la relación.
+
+6. Explica cuándo una tabla NO está en Primera Forma Normal, los inconvenientes que puede tener y cómo arreglarías el modelado para que estuviera en Primera Forma Normal. Pon un ejemplo.
+   Una tabla no está en 1FN si tiene atributos que contienen valores multivaluados o conjuntos. Inconvenientes:
+   - Dificultad para manipular y consultar los datos.
+   - Incremento de la redundancia y posibles inconsistencias.
+
+   Solución: Dividir los atributos multivaluados en una tabla independiente relacionada con la original mediante una clave foránea.  
+   Ejemplo:
+   Sin normalizar:
+   Cliente: (IDCliente, Nombre, Teléfonos)  
+   1FN:
+   Cliente: (IDCliente, Nombre)  
+   Teléfonos: (IDCliente, Teléfono)
+
+7. Explica cuándo una tabla NO está en Segunda Forma Normal, los inconvenientes que puede tener y cómo arreglarías el modelado para que estuviera en Segunda Forma Normal. Pon un ejemplo.
+   Una tabla no está en 2FN si tiene atributos no primarios que dependen solo de una parte de la clave primaria compuesta. Inconvenientes:
+   - Redundancia en los datos.
+   - Dificultad para mantener la consistencia de los datos.
+
+   Solución: Dividir la tabla en dos relaciones, separando los atributos que no tienen dependencia funcional plena con la clave primaria.  
+   Ejemplo:
+   Sin normalizar:
+   Pedido: (IDPedido, IDProducto, Cliente, Cantidad)  
+   2FN:
+   Pedido: (IDPedido, IDProducto, Cantidad)  
+   Cliente: (IDPedido, Cliente)
+
+8. Explica cuándo una tabla NO está en Tercera Forma Normal, los inconvenientes que puede tener y cómo arreglarías ese modelado para que estuviera en Tercera Forma Normal. Pon un ejemplo.
+   Una tabla no está en 3FN si tiene atributos no primarios que dependen transitivamente de la clave primaria. Inconvenientes:
+   - Redundancia en los datos.
+   - Riesgo de inconsistencias al actualizar.
+
+   Solución: Dividir la tabla en varias relaciones eliminando las dependencias transitivas.  
+   Ejemplo:
+   Sin normalizar:
+   Factura: (IDFactura, Cliente, Ciudad, País)  
+   3FN:
+   Factura: (IDFactura, Cliente)  
+   Cliente: (Cliente, Ciudad)  
+   Ciudad: (Ciudad, País)
+
+9. ¿En qué forma normal no se encuentra la siguiente relación? Aplica la regla correspondiente y arregla la relación dividiéndola en las relaciones necesarias.
+   Relación: R (NumMat, NomAlu, ApeAlu, DirAlu, CodCiu, NomCiu)  
+   La relación no está en 3FN debido a la dependencia transitiva: CodCiu -> NomCiu.  
+   Solución:
+   - R1: (NumMat, NomAlu, ApeAlu, DirAlu, CodCiu)  
+   - R2: (CodCiu, NomCiu)
+
+10. ¿En qué forma normal no se encuentra la siguiente relación? Explica qué debe cumplir una relación para estar en dicha forma normal. Aplica la regla correspondiente y arregla la relación dividiéndola en las relaciones necesarias.
+    Relación: R (NumMat, CodAsignatura, NomAsignatura, NomAlu, ApeAlu, DNIAlu, NotaAluAsig)  
+    La relación no está en 2FN porque existen atributos no primarios que no dependen de la clave primaria compuesta (NumMat, CodAsignatura).  
+    Solución:
+    - R1: (NumMat, CodAsignatura, NotaAluAsig)  
+    - R2: (NumMat, NomAlu, ApeAlu, DNIAlu)  
+    - R3: (CodAsignatura, NomAsignatura)
