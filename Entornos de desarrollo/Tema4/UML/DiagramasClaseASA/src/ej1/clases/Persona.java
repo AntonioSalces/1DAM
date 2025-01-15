@@ -1,4 +1,4 @@
-package clases;
+package ej1.clases;
 
 import java.awt.Color;
 import java.util.Date;
@@ -13,19 +13,19 @@ public class Persona {
     private String saludo;
 
     public void crecer(float cantidad){
-
+        altura += cantidad;
     }
 
     public void saludar(){
-
+        System.err.println(saludo);
     }
 
     public void decir(String frase){
-
+        System.out.println(frase);
     }
 
     public void bautizar(String nuevoNombre, String nuevosApellidos){
-
+        
     }
 
     public int preguntarEdad(){

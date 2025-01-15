@@ -1,4 +1,4 @@
-package clases;
+package ej1.clases;
 
 import java.util.Date;
 
