@@ -2,7 +2,7 @@
 Respuestas a los Ejercicios de Integridad en Bases de Datos
 
 1. ¿Qué significa que una Base de Datos Relacional sea Íntegra? ¿Cómo se puede conseguir?
-   Una base de datos relacional se considera íntegra cuando sus datos cumplen ciertas reglas que aseguran la validez, consistencia y coherencia de la información almacenada. Esto implica que los datos representen correctamente el estado del mundo real que se está modelando. 
+   Una base de datos relacional se considera íntegra cuando sus datos cumplen ciertas reglas que aseguran la validez, consistencia y coherencia de la información almacenada. Esto implica que los datos representen correctamente el estado del mundo real que se está modelando. Que no haya errores o información errónea en la base de datos y que después de hacer alguna operación la información sigue siendo integra.
    Para conseguirlo, se deben implementar y respetar reglas de integridad como las siguientes:
    - Reglas de integridad general (integridad de la entidad e integridad referencial).
    - Reglas de integridad específicas definidas por el diseñador de la base de datos.

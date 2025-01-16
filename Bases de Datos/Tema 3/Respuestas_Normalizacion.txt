@@ -32,8 +32,10 @@ Respuestas a los Ejercicios de Normalización en Bases de Datos
    Una tabla no está en 2FN si tiene atributos no primarios que dependen solo de una parte de la clave primaria compuesta. Inconvenientes:
    - Redundancia en los datos.
    - Dificultad para mantener la consistencia de los datos.
+	No esta en segunda forma normal cuando no esta en primera y ademas ocurre hay atributos no primarios que depende solo de una parte de la clave primaria.
 
-   Solución: Dividir la tabla en dos relaciones, separando los atributos que no tienen dependencia funcional plena con la clave primaria.  
+   Solución: Dividir la tabla en dos relaciones, separando los atributos que no tienen dependencia funcional plena con la clave primaria.
+
    Ejemplo:
    Sin normalizar:
    Pedido: (IDPedido, IDProducto, Cliente, Cantidad)  
@@ -42,11 +44,11 @@ Respuestas a los Ejercicios de Normalización en Bases de Datos
    Cliente: (IDPedido, Cliente)
 
 8. Explica cuándo una tabla NO está en Tercera Forma Normal, los inconvenientes que puede tener y cómo arreglarías ese modelado para que estuviera en Tercera Forma Normal. Pon un ejemplo.
-   Una tabla no está en 3FN si tiene atributos no primarios que dependen transitivamente de la clave primaria. Inconvenientes:
+   Una tabla no está en 3FN si tiene atributos no primarios que dependen de otros no primarios .Inconvenientes:
    - Redundancia en los datos.
    - Riesgo de inconsistencias al actualizar.
 
-   Solución: Dividir la tabla en varias relaciones eliminando las dependencias transitivas.  
+   Solución: Dividir la tabla en varias relaciones eliminando las dependencias transitivas. Se crea una nueva tabla en la que están los atributos no primarios que dependen de otros no primarios junto con el atributo no primario del que dependía.
    Ejemplo:
    Sin normalizar:
    Factura: (IDFactura, Cliente, Ciudad, País)  
