@@ -44,6 +44,15 @@ public class ColeccionDiscos {
         }
         return encontrado ? posicion : -1;
     }
+
+    public Disco modificarDisco(String id, Disco d){
+        int posicion = encontrarDisco(discos, id);
+        if(posicion!=-1){
+            discos[posicion]=d;
+            return d;
+        }
+        return null;
+    }
     
 
     public Disco[] consultar(){

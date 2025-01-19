@@ -23,6 +23,10 @@ public class App {
             System.out.println(discos[i]);
     }
 
+    public static void modificar(String ID){
+        //modificarDisco(ID);
+    }
+
     private static void crear(){
         System.out.println("""
                 NUEVO DISCO
