@@ -1,4 +1,5 @@
-import clases.Agenda;
+package ej1;
+import ej1.clases.Agenda;
 
 public class App {
     private static void menu() {

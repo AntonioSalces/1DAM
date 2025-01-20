@@ -1,4 +1,4 @@
-package clases;
+package ej1.clases;
 
 public class Agenda {
     private String[] contactos;
