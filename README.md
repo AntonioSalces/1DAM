@@ -39,5 +39,12 @@ Si quieres aportar mejoras o sugerencias, ¡eres bienvenido! Puedes abrir un iss
 
 Si tienes dudas o sugerencias, puedes encontrarme en:  
 
+## Contacto  
+
+Si tienes dudas o sugerencias, puedes encontrarme en:  
+
 - GitHub: [AntonioSalces](https://github.com/AntonioSalces)  
-- Email: antoniosalces06@gmail.com
+- Email: antoniosalces06@gmail.com (reemplazar con tu correo real)  
+- LinkedIn: [linkedin.com/in/antoniosalces](https://linkedin.com/in/antoniosalces)  
+- Telegram: [@antoniosalces](https://t.me/salcess_13)  
+
