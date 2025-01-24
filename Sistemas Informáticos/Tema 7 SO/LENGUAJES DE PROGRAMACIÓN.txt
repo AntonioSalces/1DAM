@@ -1,0 +1,19 @@
+LENGUAJES DE PROGRAMACIÓN
+
+	· Según modo ejecución:
+		- Compilados: generamos código objeto (binario) a partir del código fuente. Cuando unimos todos los códigos objetos, obtenemos un archivo ejecutable.
+		- Interpretados: el código fuente es leído y ejecutado línea a línea por un programa llamado "intérprete".
+		- Máquina virtual: el código fuente se transforma a un pseudolenguaje mediante un compilador en una máquina virtual, y un intérprete las ejecuta.
+
+	· Según abstracción:
+		- Bajo nivel: lenguaje ensamblador y código máquina.
+		- Nivel intermedio: C.
+		- Alto nivel: Java, C++, Python, Ruby, Perl, PHP...
+
+	· Según paradigma:
+		- POO
+		- Estructurada
+		- Procedimental
+		- Declarativo
+			~ Lógica
+			~ Funcional.
