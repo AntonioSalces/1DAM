@@ -76,7 +76,9 @@ ORDER BY Nombre;
 
 /*9. Hallar por orden alfabético los nombres de los empleados, tales que si se les da una gratificación de 60
 euros por hijo, esta gratificación no supera a la décima parte de su salario.*/
-
+SELECT NOMEM AS Nombre, NUMHI AS NumeroHijos, SALAR AS Salario
+FROM temple
+WHERE NUMHI*60 < SALAR/10
 
 /*10. Obtener el nombre de cada centro, junto con el nombre de los departamentos que tiene. Ordena
 ascendentemente por nombre de centro y a igual nombre de centro ordena por nombre de departamento.*/
