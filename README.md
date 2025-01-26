@@ -8,14 +8,20 @@ El repositorio está organizado en carpetas por asignatura, incluyendo:
 
 - **Programación (Java, SQL, etc.)**  
   - Ejercicios de POO, estructuras de datos, algoritmos, etc.  
-  - Prácticas de bases de datos con SQL (consultas, joins, etc.).  
+  - Prácticas de bases de datos con SQL (consultas, joins, etc.).
+    
 - **Sistemas Informáticos**  
-  - Apuntes sobre máquinas virtuales, redes y administración de sistemas.  
+  - Apuntes y prácticas sobre máquinas virtuales, redes y administración de sistemas.
+    
 - **Bases de Datos**  
-  - Prácticas con modelos relacionales, normalización y consultas SQL.  
+  - Prácticas con modelos relacionales, normalización y consultas SQL.
+    
 - **Entornos de Desarrollo**  
   - Configuración de entornos, control de versiones (Git), herramientas de desarrollo.  
 
+- **Lenguaje de Marcas y Sistemas de Gestión de la Información**
+  - Prácticas sobre HTML y CSS, con un proyecto de página web estática
+    
 ## Cómo usar este repositorio  
 
 1. **Clonar el repositorio:**  
@@ -29,7 +35,7 @@ El repositorio está organizado en carpetas por asignatura, incluyendo:
 
 - Java 8 o superior  
 - MySQL/MariaDB para consultas SQL  
-- Un IDE recomendado: IntelliJ IDEA, NetBeans o Eclipse  
+- Un IDE recomendado: IntelliJ IDEA, NetBeans, Eclipse, VSCode...  
 
 ## Contribuciones  
 
@@ -39,12 +45,8 @@ Si quieres aportar mejoras o sugerencias, ¡eres bienvenido! Puedes abrir un iss
 
 Si tienes dudas o sugerencias, puedes encontrarme en:  
 
-## Contacto  
-
-Si tienes dudas o sugerencias, puedes encontrarme en:  
-
 - GitHub: [AntonioSalces](https://github.com/AntonioSalces)  
-- Email: antoniosalces06@gmail.com (reemplazar con tu correo real)  
+- Email: antoniosalces06@gmail.com
 - LinkedIn: [linkedin.com/in/antonio-salces-alcaraz-a408a02aa/](https://www.linkedin.com/in/antonio-salces-alcaraz-a408a02aa/)  
 - Telegram: [@antoniosalces](https://t.me/salcess_13)  
 
