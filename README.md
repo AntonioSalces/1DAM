@@ -20,7 +20,7 @@ El repositorio está organizado en carpetas por asignatura, incluyendo:
   - Configuración de entornos, control de versiones (Git), herramientas de desarrollo.  
 
 - **Lenguaje de Marcas y Sistemas de Gestión de la Información**
-  - Prácticas sobre HTML y CSS, con un proyecto de página web estática
+  - Prácticas sobre HTML y CSS, con un proyecto de página web estática.
     
 ## Cómo usar este repositorio  
 
