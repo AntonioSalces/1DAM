@@ -82,10 +82,15 @@ WHERE NUMHI*60 < SALAR/10
 
 /*10. Obtener el nombre de cada centro, junto con el nombre de los departamentos que tiene. Ordena
 ascendentemente por nombre de centro y a igual nombre de centro ordena por nombre de departamento.*/
-
+SELECT tcentr.NOMCE AS NombreCentro, tdepto.NOMDE AS NombreDepartamento
+FROM tcentr
+JOIN tdepto ON tcentr.NUMCE = tdepto.NUMCE
+ORDER BY tcentr.NOMCE ASC, tdepto.NOMDE ASC;
 
 /*11. Obtener ordenadamente el nombre de cada departamento junto con el nombre de cada empleado que tiene.*/
-
+SELECT tdepto.NOMDE AS NombreDepartamento, temple.NOMEM AS NombreEmpleadp
+FROM temple
+JOIN tdepto ON temple.NUMDE = tdepto.NUMDE
 
 /*12. Obtener ordenadamente el nombre de cada centro, junto con el nombre de los departamentos que tiene y el
 nombre de los empleados que pertenecen a cada departamento.*/
