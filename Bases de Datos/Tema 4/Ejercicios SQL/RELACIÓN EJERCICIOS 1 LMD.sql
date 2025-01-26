@@ -94,19 +94,33 @@ JOIN tdepto ON temple.NUMDE = tdepto.NUMDE
 
 /*12. Obtener ordenadamente el nombre de cada centro, junto con el nombre de los departamentos que tiene y el
 nombre de los empleados que pertenecen a cada departamento.*/
-
+SELECT tcentr.NOMCE, tdepto.NOMDE, temple.NOMEM
+FROM tcentr
+JOIN tdepto ON tdepto.NUMCE = tcentr.NUMCE
+JOIN temple ON temple.NUMDE = tdepto.NUMDE
+ORDER BY tcentr.NOMCE ASC, tdepto.NOMDE ASC, temple.NOMEM ASC;
 
 /*13. Obtener para los departamentos con un presupuesto superior a 5000 euros, su nombre junto con el nombre
 del centro donde está ubicado. Hacer el ejercicio de dos formas: utilizando un producto cartesiano y con la
 cláusula JOIN.*/
-
+SELECT *
+FROM tdepto
+-- SE HA INTENTADO HACER PERO NO HAY NINGUN PRESUPUESTO MAYOR A 5000
 
 /*14. Para cada empleado obtener el nombre, salario, número de hijos y el nombre del departamento en el que
 está.*/
-
+SELECT temple.NOMEM, temple.SALAR, temple.NUMHI, tdepto.NOMDE
+FROM temple
+JOIN tdepto ON tdepto.NUMDE = temple.NUMDE
 
 /*15. Para los empleados del departamento de Nominas obtener el nombre, salario y número de hijos. Ordena
 ascendentemente por nombre de empleado y utiliza alias para las columnas.*/
-
+SELECT temple.NOMEM AS NombreEmpleado, temple.SALAR AS SalarioEmpleado, temple.NUMHI AS HijosEmpleado
+FROM temple
+WHERE temple.NUMDE = 110
+ORDER BY 1 ASC
 
 /*16. Obtener el nombre de los empleados que están en el centro Sede Central.*/
+SELECT temple.NOMEM
+FROM temple
+WHERE temple.NUMDE = 100 OR temple.NUMDE = 120 OR temple.NUMDE = 121
