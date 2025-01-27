@@ -2,31 +2,41 @@
 
 Relación de Ejercicios 2.*/
 
-USE EMPRESA
+USE EMPRESA;
 
 /*1. Hallar el nombre de los empleados que no tienen comisión, clasificados
-de manera que aparezca primero aquellos nombres que son más cortos.*/
-
+   de manera que aparezca primero aquellos nombres que son más cortos.*/
+SELECT NOMEM
+FROM temple
+WHERE COMIS IS NULL
+ORDER BY LEN(NOMEM);
 
 /*2. Hallar, por orden alfabético, los nombres de los empleados suprimiendo
-las dos últimas letras. Mirar en la ayuda el funcionamiento de las
-funciones escalares de manejo de cadena: substring y len.*/
-
+   las dos últimas letras.*/
+SELECT LEFT(NOMEM, LEN(NOMEM) - 2) AS NombreModificado
+FROM temple
+ORDER BY NOMEM;
 
 /*3. Hallar cuántos departamentos hay y el presupuesto anual medio de
-ellos.*/
-
+   ellos.*/
+SELECT COUNT(*) AS TotalDepartamentos, AVG(PRESU) AS PresupuestoMedio
+FROM tdepto;
 
 /*4. Hallar la masa salarial anual (salario más comisión) de la empresa (se
-suponen 14 pagas anuales).*/
-
+   suponen 14 pagas anuales).*/
+SELECT SUM((SALAR + COALESCE(COMIS, 0)) * 14) AS MasaSalarialAnual
+FROM temple;
 
 /*5. Hallar la masa salarial anual (salario más comisión) de cada empleado
-(se suponen 14 pagas anuales).*/
+   (se suponen 14 pagas anuales).*/
+SELECT NOMEM, (SALAR + COALESCE(COMIS, 0)) * 14 AS MasaSalarialAnual
+FROM temple;
 
-
-/*6. Hallar cuántos empleados han ingresado en el año actual. Utiliza la
-función year.*/
-
+/*6. Hallar cuántos empleados han ingresado en el año actual.*/
+SELECT COUNT(*) AS EmpleadosIngresados
+FROM temple
+WHERE YEAR(FECIN) = YEAR(GETDATE());
 
 /*7. Hallar la diferencia entre el salario más alto y el salario más bajo.*/
+SELECT MAX(SALAR) - MIN(SALAR) AS DiferenciaSalarial
+FROM temple;

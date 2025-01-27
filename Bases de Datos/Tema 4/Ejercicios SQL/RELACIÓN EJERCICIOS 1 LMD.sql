@@ -11,7 +11,6 @@ FROM tdepto
 WHERE TIDIR = 'F' 
 ORDER BY NOMDE;
 
-
 /*2. Obtener un listín telefónico de los empleados del departamento 121 incluyendo nombre del empleado,
 número del empleado y extensión telefónica. Por orden alfabético descendente.*/
 SELECT NOMEM, NUMEM, EXTEL
@@ -19,13 +18,11 @@ FROM temple
 WHERE NUMDE = 121
 ORDER BY NOMEM DESC;
 
-
 /*3. Obtener por orden creciente una relación de todos los números de extensiones telefónicas de los
 empleados (elimina las repeticiones).*/
 SELECT DISTINCT EXTEL 
 FROM temple
 ORDER BY EXTEL ASC;
-
 
 /*4. Hallar el nombre, salario y la comisión de los empleados con más de un hijo, clasificados por comisión, y
 dentro de la comisión por orden alfabético. El listado debe incluir también los empleados con más de un hijo
@@ -36,14 +33,12 @@ FROM temple
 WHERE NUMHI > 1
 ORDER BY Comision, NOMEM;
 
-
 /*5. Obtener salario y nombre de los empleados con dos hijos por orden decreciente de salario y por orden
 alfabético dentro del salario.*/
 SELECT SALAR, NOMEM
 FROM temple
 WHERE NUMHI = 2
 ORDER BY SALAR DESC, NOMEM;
-
 
 /*6. Obtener el nombre de los empleados cuya comisión es superior o igual al 50% de su salario, por orden
 alfabético.*/
@@ -52,7 +47,6 @@ FROM temple
 WHERE COMIS >= SALAR * 0.50
 ORDER BY NOMEM;
 
-
 /*7. A. En una campaña de ayuda familiar se ha decidido dar a los empleados una paga extra de 30 euros por
 hijo, a partir del tercero inclusive. Obtener por orden alfabético para estos empleados: nombre y salario total
 que van a cobrar incluyendo esta paga extra.*/
@@ -60,7 +54,6 @@ SELECT NOMEM, (SALAR + (NUMHI - 2) * 30)
 FROM temple
 WHERE NUMHI >= 3
 ORDER BY NOMEM;
-
 
 /*8. Igual que el ejercicio anterior, pero mostrar también el nombre y el salario que ganan el resto de los
 empleados (los que tienen 0, 1 o 2 hijos). Resuelve el ejercicio de dos formas diferentes: con el operador
@@ -103,9 +96,9 @@ ORDER BY tcentr.NOMCE ASC, tdepto.NOMDE ASC, temple.NOMEM ASC;
 /*13. Obtener para los departamentos con un presupuesto superior a 5000 euros, su nombre junto con el nombre
 del centro donde está ubicado. Hacer el ejercicio de dos formas: utilizando un producto cartesiano y con la
 cláusula JOIN.*/
-SELECT *
-FROM tdepto
--- SE HA INTENTADO HACER PERO NO HAY NINGUN PRESUPUESTO MAYOR A 5000
+SELECT nomde, nomce
+FROM tcentr c JOIN tdepto d ON c.NUMCE=d.NUMCE
+WHERE presu>5000;
 
 /*14. Para cada empleado obtener el nombre, salario, número de hijos y el nombre del departamento en el que
 está.*/
@@ -121,6 +114,6 @@ WHERE temple.NUMDE = 110
 ORDER BY 1 ASC
 
 /*16. Obtener el nombre de los empleados que están en el centro Sede Central.*/
-SELECT temple.NOMEM
-FROM temple
-WHERE temple.NUMDE = 100 OR temple.NUMDE = 120 OR temple.NUMDE = 121
+SELECT NOMEM
+FROM tcentr C JOIN tdepto D ON C.NUMCE=D.NUMCE JOIN temple E ON D.NUMDE=E.NUMDE
+WHERE NOMCE = 'Sede Central'
