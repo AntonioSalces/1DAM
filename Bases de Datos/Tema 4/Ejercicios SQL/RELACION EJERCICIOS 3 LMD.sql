@@ -25,26 +25,35 @@ ORDER BY 1 ASC;
 
 /*3. Obtener por orden alfabético los nombres y los salarios de los empleados cuyo salario es inferior
 a tres veces la comisión más baja existente distinta de NULL.*/
-SELECT *
+SELECT NOMEM, SALAR
 FROM temple
-WHERE salar < (SELECT MIN(COMIS)
+WHERE SALAR < (SELECT MIN(COMIS) * 3
 			   FROM temple
-			   WHERE COMIS <> null) / 3;
+			   WHERE COMIS IS NOT NULL)
+ORDER BY NOMEM ASC, SALAR ASC
 
 /*4. Obtener, utilizando el predicado BETWEEN, por orden alfabético los números (identificador
 único), los nombres y los salarios de los empleados con hijos cuyo salario dividido por su número
 de hijos cumpla una, o ambas, de las dos condiciones siguientes:
 • Que sea inferior a 1200 euros.
 • Que sea superior al doble de su comisión.*/
-
+SELECT NUMEM, NOMEM, SALAR
+FROM temple
+WHERE SALAR/NULLIF(NUMHI,0)NOT BETWEEN 1200 AND COMIS * 2
+ORDER BY NOMEM ASC
 
 /*5. Obtener por orden alfabético los nombres de los empleados cuyo primer apellido es Mora o
 empieza por Mora.*/
-
+SELECT NOMEM
+FROM temple
+WHERE NOMEM LIKE 'Mora%'
 
 /*6. Obtener por orden alfabético los nombres de los empleados cuyo primer apellido termina en EZ y
 su nombre de pila termina en O y tiene al menos tres letras.*/
-
+SELECT NOMEM
+FROM temple
+WHERE NOMEM LIKE '%EZ, ___%o'
+ORDER BY NOMEM;
 
 /*7. Obtener, utilizando el predicado IN, por orden alfabético los nombres de los empleados del
 departamento 111 cuyo salario es igual a alguno de los salarios del departamento 112.
