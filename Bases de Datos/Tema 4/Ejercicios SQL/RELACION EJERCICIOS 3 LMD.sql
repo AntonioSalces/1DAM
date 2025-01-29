@@ -58,19 +58,65 @@ ORDER BY NOMEM;
 /*7. Obtener, utilizando el predicado IN, por orden alfabético los nombres de los empleados del
 departamento 111 cuyo salario es igual a alguno de los salarios del departamento 112.
 ¿Cómo lo obtendrías con el predicado ANY?*/
+SELECT nomem
+FROM temple
+WHERE numde = 111
+  AND salar IN (SELECT salar FROM temple WHERE numde = 112)
+ORDER BY nomem ASC;
 
 
-/*8. A. Obtener por orden alfabético los nombres y comisiones de los empleados del
+SELECT nomem
+FROM temple
+WHERE numde = 111
+  AND salar = ANY(SELECT salar FROM temple WHERE numde = 112)
+ORDER BY nomem ASC;
+
+/*8. Obtener por orden alfabético los nombres y comisiones de los empleados del
 departamento 110 si hay en él algún empleado que tenga comisión.*/
+SELECT NOMEM, COMIS
+FROM temple
+WHERE NUMDE = 110 AND COMIS IS NOT NULL
+ORDER BY NOMEM ASC
 
+	/*9. Obtener por orden alfabético los nombres de los departamentos que tienen algún empleado
+	sin comisión. Hacer el ejercicio de cuatro formas diferentes:
+	❑ Con predicado EXISTS.
+	❑ Con predicado ANY
+	❑ Con predicado IN
+	❑ Usando JOIN.*/
+SELECT DISTINCT d.NOMDE
+FROM tdepto d
+WHERE EXISTS (
+    SELECT 1 
+    FROM temple e 
+    WHERE e.NUMDE = d.NUMDE 
+    AND (e.COMIS IS NULL OR e.COMIS = 0)
+)
+ORDER BY d.NOMDE;
 
-/*9. Obtener por orden alfabético los nombres de los departamentos que tienen algún empleado
-sin comisión. Hacer el ejercicio de cuatro formas diferentes:
-❑ Con predicado EXISTS.
-❑ Con predicado ANY
-❑ Con predicado IN
-❑ Usando JOIN.*/
+SELECT DISTINCT d.NOMDE
+FROM tdepto d
+WHERE d.NUMDE = ANY (
+    SELECT e.NUMDE
+    FROM temple e
+    WHERE e.COMIS IS NULL OR e.COMIS = 0
+)
+ORDER BY d.NOMDE;
 
+SELECT DISTINCT d.NOMDE
+FROM tdepto d
+WHERE d.NUMDE IN (
+    SELECT e.NUMDE
+    FROM temple e
+    WHERE e.COMIS IS NULL OR e.COMIS = 0
+)
+ORDER BY d.NOMDE;
+
+SELECT DISTINCT d.NOMDE
+FROM tdepto d
+JOIN temple e ON d.NUMDE = e.NUMDE
+WHERE e.COMIS IS NULL OR e.COMIS = 0
+ORDER BY d.NOMDE;
 
 /*10. Para los departamentos cuyo nombre empieza por las letras O o P, mostrar el nombre del
 departamento y el nombre del departamento del que depende.*/
