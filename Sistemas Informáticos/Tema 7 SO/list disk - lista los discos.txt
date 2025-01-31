@@ -1,0 +1,5 @@
+list disk -> lista los discos
+select disk <numero> -> selecciona el disco indicado
+create partition <tipo> -> crea una partición del tipo indicado
+delete partition -> elimina la partición
+create partition <tipo> [size=<bytes>] -> crea una partición del tipo y tamaño indicado
