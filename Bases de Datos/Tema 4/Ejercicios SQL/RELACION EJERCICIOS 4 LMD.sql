@@ -16,7 +16,13 @@ GROUP BY EXTEL;
 
 /*2. Agrupando por departamento y número de hijos, hallar cuantos empleados hay en cada
 grupo.*/
+SELECT *
+FROM temple
+ORDER BY NUMDE;
 
+SELECT NUMDE, NUMHI, COUNT(*) AS 'NUMERO EMPLEADOS POR DEPARTAMENTO CON MISMO NUMERO DE HIJOS'
+FROM temple
+GROUP BY NUMDE, NUMHI
 
 /*3. Hallar por departamentos la edad en años cumplidos del empleado más mayor, así
 como la edad media del mismo (el empleado debe tener comisión). Ordenar el
