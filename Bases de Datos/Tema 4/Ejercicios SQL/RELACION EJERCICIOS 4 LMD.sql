@@ -37,13 +37,25 @@ el número de extensiones telefónicas distintas que tiene cada uno de ellos.*/
 /*5. Hallar el máximo valor de la suma de los salarios de los departamentos. Queremos
 obtener número de departamento (numde) y la suma de sus salarios, pero del
 departamento cuya suma de salarios es la mayor de todas.*/
-
+SELECT NUMDE, SUM(SALAR) AS TOTAL_SALARIOS
+FROM temple
+GROUP BY NUMDE
+HAVING SUM(SALAR) = (SELECT MAX(TOTAL)
+					 FROM (SELECT NUMDE, SUM(SALAR) AS TOTAL
+						   FROM temple
+						   GROUP BY NUMDE) AS SUBQUERY);
 
 /*6. Para cada departamento con presupuesto inferior a 10000 euros obtener el nombre, el
 nombre del centro donde está ubicado y el máximo salario de sus empleados, si éste
 excede de 1500 euros. Clasificar alfabéticamente por nombre de departamento. Hacer
 el ejercicio de dos maneras: con producto cartesiano y con JOIN.*/
-
+SELECT NOMDE, NOMCE, SALAR
+FROM tdepto D JOIN tcentr C ON (D.NUMCE = C.NUMCE)
+JOIN temple E ON (D.NUMDE = E.NUMDE)
+WHERE D.PRESU < 10000
+GROUP BY D.NOMDE, C.NOMCE, E.SALAR
+HAVING MAX(E.SALAR) > 1500
+ORDER BY D.NOMDE
 
 /*7. Hallar por orden alfabético los nombres de los departamentos que dependen de los que
 tienen un presupuesto inferior a 10000 euros. Mostrar el nombre del departamento y el
