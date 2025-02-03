@@ -1,4 +1,4 @@
-package ej18;
+/*package ej18;
 public class Ej17 {
     public static void main(String[] args) {
         Carrito miCarrito = new Carrito();
@@ -19,3 +19,4 @@ public class Ej17 {
         + String.format("%.2f", miCarrito.importeTotal()) + " euros");
     }
 }
+*/

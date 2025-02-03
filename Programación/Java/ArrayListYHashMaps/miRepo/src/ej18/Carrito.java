@@ -1,12 +1,13 @@
-package ej18;
+/*package ej18;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class Carrito {
-    private HashMap<Elemento, Integer> compra;
+    private HashMap<String, Elemento> compra;
 
     public Carrito() {
-        this.compra = new HashMap<>();
+        
     }
 
     public void agrega(Elemento e) {
@@ -19,7 +20,7 @@ public class Carrito {
 
     public double importeTotal() {
         double total = 0;
-        for (Elemento elemento : compra) {
+        for (Elemento elemento : compra.values()) {
             total += elemento.getPrecio() * elemento.getCantidad();
         }
         return total;
@@ -37,3 +38,4 @@ public String toString() {
 }
 
 }
+*/
