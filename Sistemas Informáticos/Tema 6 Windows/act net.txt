@@ -1,0 +1,13 @@
+lusrmgr.msc
+
+gpedit.msc
+	Configuracion del equipo > configuracion de windows > configuracion de seguridad > directivas de cuenta > directiva de contraseñas
+
+cdm admin
+	net accounts /help
+		account
+		net account /MINPWLEN:<numero>
+	net user /help
+		net user
+		net user /HELP
+			net user batman G123456. /ADD
