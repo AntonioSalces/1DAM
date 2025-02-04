@@ -49,7 +49,7 @@ public class Ticket implements TicketInterface{
         }
         TicketLine linea = lineas.get(p);
         if (cantidad > linea.getCantidadComprada()) {
-            throw new IllegalArgumentException("El numero debe de ser mayor a 0");
+            throw new NotEnoughStock();
         }   
 
         if (cantidad == linea.getCantidadComprada()) {
