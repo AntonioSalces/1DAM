@@ -1,10 +1,8 @@
 package eticket;
 
-import java.util.HashMap;
-
 public interface TicketLineInterface {
-    public Product getProduct(Product p);
-    public int getCantidadComprada(Product p, HashMap<Product, Integer> stockProductos);
-    public void modificarCantidadComprada(Product p, int nuevaCantidad);
+    public Product getProduct();
+    public int getCantidadComprada();
+    public void modificarCantidadComprada(int cantidad);
     public double devolverPrecioTotal();
 }

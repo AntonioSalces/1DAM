@@ -21,6 +21,7 @@ package eticket;
  *   Precio: 119,95 €
  */
 public class Product implements ProductInterface{
+    private static int proximoCodigo = 1;
     private int code;
     private String brand;
     private String model;
@@ -28,7 +29,7 @@ public class Product implements ProductInterface{
     private double price;
 
     public Product(String brand, String model, String tradeName, double price) {
-        code = generarCodigoAleatorio(10);
+        code = proximoCodigo++;
         this.brand = brand;
         this.model = model;
         this.tradeName = tradeName;
@@ -55,16 +56,6 @@ public class Product implements ProductInterface{
         return price;
     }
 
-    private int generarCodigoAleatorio(int tamanio) {
-        int codigo = 1;
-
-        for (int i = 0; i < tamanio; i++) {
-            codigo *= 10 + (int) (Math.random() * 10);
-        }
-
-        return Math.abs(codigo);
-    }
-    
     @Override
     public boolean equals(Object obj) {
         if(this == obj) {

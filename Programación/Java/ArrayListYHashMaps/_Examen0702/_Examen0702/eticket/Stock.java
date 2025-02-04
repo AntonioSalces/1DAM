@@ -57,6 +57,8 @@ public class Stock implements StockInterface{
                 Nombre comercial: %s
                 Precio: %.2f
                 Stock disponible: %d
+                **********************************
+
             """, p.getCode(), p.getBrand(), p.getModel(), p.getTradeName(), p.getPrice(), totalStock.get(p));
             }
         }

@@ -1,12 +1,12 @@
 import java.util.Scanner;
 
-import eticket.NotEnoughStock;
+//import eticket.NotEnoughStock;
 import eticket.Product;
-import eticket.ProductDoesNotExists;
-import eticket.Stock;
-import eticket.Ticket;
+//import eticket.ProductDoesNotExists;
+//import eticket.Stock;
+//import eticket.Ticket;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.HashMap;
 public class ETicket1 {
     public static void main(String[] args){
