@@ -60,13 +60,35 @@ ORDER BY D.NOMDE
 /*7. Hallar por orden alfabético los nombres de los departamentos que dependen de los que
 tienen un presupuesto inferior a 10000 euros. Mostrar el nombre del departamento y el
 nombre del departamento del que dependen. Realizar la consulta de cuatro formas
-distintas: con predicado IN, con predicado ANY, con producto cartesiano y con JOIN.
+distintas: con predicado IN, con predicado ANY, con producto cartesiano y con JOIN.*/
+SELECT d1.NOMDE AS dep
+FROM tdepto d1
+WHERE d1.DEPDE IN (SELECT d2.NUMDE
+				   FROM tdepto d2
+				   WHERE d2.PRESU < 10000)
+
+SELECT d1.NOMDE AS dep
+FROM tdepto d1, tdepto d2
+WHERE d1.DEPDE = ANY (SELECT d2.NUMDE
+				   FROM tdepto d2
+				   WHERE d2.PRESU < 10000)
+
+SELECT d1.NOMDE AS dep, d2.NOMDE AS depPadre
+FROM tdepto d1
+JOIN tdepto d2 ON d1.DEPDE = d2.NUMDE
+WHERE d2.PRESU < 10000
 
 
-8. Obtener por orden alfabético los nombres de los departamentos cuyo presupuesto es
+/*8. Obtener por orden alfabético los nombres de los departamentos cuyo presupuesto es
 inferior al 10 % de la suma de los salarios anuales de sus empleados (sin tener en
 cuenta la comisión y son 14 pagas). Hacer el ejercicio con predicado básico y con
 agrupamiento.*/
+SELECT d.NOMDE AS departamente
+FROM tdepto d
+JOIN temple e ON d.numde = e.NUMDE
+GROUP BY d.NOMDE, d.PRESU
+HAVING d.PRESU < SUM(e.salar * 14) / 10
+ORDER BY d.NOMDE
 
 
 /*9. Ejecutar las siguientes sentencias:
