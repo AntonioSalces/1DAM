@@ -13,6 +13,12 @@ SELECT EXTEL, COUNT(*) AS 'NUMERO PERSONAS POR EXTENSION', AVG(SALAR) AS 'SALARI
 FROM temple
 GROUP BY EXTEL;
 
+/*1. Para cada extensión telefónica, hallar cuantos empleados la usan y salario medio de
+estos.*/
+SELECT EXTEL, COUNT(*), AVG(SALAR)
+FROM temple
+GROUP BY EXTEL
+
 
 /*2. Agrupando por departamento y número de hijos, hallar cuantos empleados hay en cada
 grupo.*/
@@ -24,15 +30,28 @@ SELECT NUMDE, NUMHI, COUNT(*) AS 'NUMERO EMPLEADOS POR DEPARTAMENTO CON MISMO NU
 FROM temple
 GROUP BY NUMDE, NUMHI
 
+/*2. Agrupando por departamento y número de hijos, hallar cuantos empleados hay en cada
+grupo.*/
+SELECT d.NOMDE, e.NUMHI, COUNT(*)
+FROM temple e JOIN tdepto d ON d.NUMDE = e.NUMDE
+GROUP BY d.NOMDE, e.NUMHI
+
 /*3. Hallar por departamentos la edad en años cumplidos del empleado más mayor, así
 como la edad media del mismo (el empleado debe tener comisión). Ordenar el
 resultado por edades.*/
-
+SELECT NUMDE, MAX(DATEDIFF(YEAR, e.FECNA, GETDATE())), AVG(DATEDIFF(YEAR, e.FECNA, GETDATE()))
+FROM temple e
+WHERE COMIS IS NULL OR COMIS = 0
+GROUP BY NUMDE
+ORDER BY MAX(DATEDIFF(YEAR, e.FECNA, GETDATE()));
 
 /*4. Para los departamentos cuyo salario medio supera al de la empresa, hallar cuántas
 extensiones telefónicas tienen. Se debe mostrar el número de departamento (numde) y
 el número de extensiones telefónicas distintas que tiene cada uno de ellos.*/
-
+SELECT e.NUMDE, COUNT(DISTINCT e.EXTEL)
+FROM temple e
+GROUP BY e.NUMDE
+HAVING AVG(e.SALAR) > (SELECT AVG(SALAR) FROM temple)
 
 /*5. Hallar el máximo valor de la suma de los salarios de los departamentos. Queremos
 obtener número de departamento (numde) y la suma de sus salarios, pero del
