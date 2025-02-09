@@ -266,5 +266,11 @@ FROM pelicula pel JOIN personaje per ON pel.CodPerProtagonista = per.CodPer
 WHERE pel.Lanzamiento >= 2015
 ORDER BY pel.Lanzamiento ASC
 
-
-select * from pelicula
+/*EJERCICIO 22
+Obtener el título de cada película y el nombre completo del actor que interpreta
+al protagonista. Si no se encuentra información del protagonista, debe mostrarse 
+el texto "Sin datos".*/
+SELECT pel.Titulo, ISNULL(act.NomAct + ' ' + act.ApeAct, 'Sin datos') AS 'Protagonista'
+FROM pelicula pel LEFT JOIN personaje per ON pel.CodPerProtagonista = per.CodPer
+				  LEFT JOIN actor act ON per.CodAct = act.CodAct
+ORDER BY pel.Titulo
