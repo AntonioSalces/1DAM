@@ -184,3 +184,87 @@ FROM actor a JOIN personaje per ON a.CodAct = per.CodAct
 			 JOIN pelicula pel ON per.CodPer = pel.CodPerProtagonista
 WHERE pel.Lanzamiento > 2020
 ORDER BY AniosTranscurridos DESC
+
+/*EJERCICIO 14
+Obtener el título de cada película y el número de personajes que participan en ella 
+(excluyendo al protagonista). Si una película aún no tiene personajes almacenados en 
+participa_pel, debe aparecer igualmente con el número 0.*/
+SELECT pel.Titulo, COUNT(p.CodPel)
+FROM pelicula pel LEFT JOIN participa_pel p ON pel.CodPel = p.CodPel
+GROUP BY pel.Titulo
+
+/*EJERCICIO 15
+Obtener el nombre de los personajes que han participado en exactamente 2 películas.*/
+SELECT per.NomPer
+FROM personaje per JOIN participa_pel p ON per.CodPer = p.CodPer
+GROUP BY per.NomPer
+HAVING COUNT(p.CodPer) = 2;
+
+/*EJERCICIO 16
+Obtener el nombre y apellido del actor más viejo en la base de datos junto con la 
+edad que tiene actualmente.*/
+SELECT a.NomAct, a.ApeAct, DATEDIFF(DAY, a.Edad, GETDATE()) / 365
+FROM actor a
+WHERE a.Edad IN (SELECT MIN(Edad)
+				 FROM actor)
+
+/*EJERCICIO 17
+Modificar el director de la película más reciente almacenada en la base de datos 
+y luego deshacer la transacción.*/
+BEGIN TRANSACTION
+
+UPDATE pelicula
+SET DIRECTOR = 'TU SABRAS'
+WHERE Lanzamiento = ANY (SELECT MAX(Lanzamiento)
+						 FROM pelicula)
+
+select * from pelicula
+
+ROLLBACK TRANSACTION
+
+/*EJERCICIO 18
+Eliminar todos los personajes que no sean protagonistas, que no participen en ninguna 
+película y cuyo nombre termine en "a". La operación debe estar dentro de una transacción 
+y deshacerse al final.*/
+BEGIN TRANSACTION
+
+DELETE FROM personaje
+WHERE CodPer NOT IN (SELECT CodPerProtagonista FROM pelicula)
+	AND CodPer NOT IN (Select CodPer FROM participa_pel)
+	AND NomPer LIKE '%a'
+
+ROLLBACK TRANSACTION
+
+/*EJERCICIO 19
+Obtener el nombre y apellido de los actores mayores de edad junto con la edad actual, 
+ordenando por edad de manera descendente.*/
+SELECT act.NomAct + ' ' + act.ApeAct AS 'NombreCompleto',
+	   DATEDIFF(DAY, act.Edad, GETDATE()) / 365
+FROM actor act
+WHERE DATEDIFF(DAY, act.Edad, GETDATE()) / 365 > 18
+ORDER BY act.Edad DESC
+
+/*EJERCICIO 20
+Para cada película, mostrar el título y la cantidad de personajes únicos que han 
+participado en ella. Ordenar por cantidad de personajes de mayor a menor.*/
+SELECT pel.Titulo, COUNT(p.CodPer)
+FROM pelicula pel LEFT JOIN participa_pel p ON pel.CodPel = p.CodPel
+GROUP BY pel.Titulo
+ORDER BY pel.Titulo
+
+/*EJERCICIO 21
+Obtener todas las películas lanzadas antes del 2015 mostrando su título, 
+año de lanzamiento y el nombre del director. Para películas de 2015 en adelante, 
+mostrar el título, año de lanzamiento y el nombre del protagonista. 
+Ordenar ascendentemente por año de lanzamiento.*/
+SELECT pel.Titulo, pel.Lanzamiento, pel.Director
+FROM pelicula pel
+WHERE pel.Lanzamiento < 2015
+UNION
+SELECT pel.Titulo, pel.Lanzamiento, per.NomPer
+FROM pelicula pel JOIN personaje per ON pel.CodPerProtagonista = per.CodPer
+WHERE pel.Lanzamiento >= 2015
+ORDER BY pel.Lanzamiento ASC
+
+
+select * from pelicula
