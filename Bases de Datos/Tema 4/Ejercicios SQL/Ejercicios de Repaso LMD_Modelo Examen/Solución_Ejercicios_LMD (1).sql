@@ -1,4 +1,3 @@
-
 USE ejercicios_LMD
 
 /*1. Obtener para cada película el título, el director

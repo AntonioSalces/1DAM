@@ -81,21 +81,39 @@ Para todos los actores mayores de edad a día de hoy, obtener el nombre y el apel
 nacimiento en formato español, la correspondiente edad a día de hoy, junto con el nombre del
 personaje que interpreta. Utiliza alias para las columnas. Ordena por nombre de personaje
 descendentemente.*/
-
+SELECT a.NomAct AS 'Nombre', 
+	   a.ApeAct AS 'Apellidos', 
+	   FORMAT(a.Edad, 'd') AS 'FechaNacimiento', 
+	   DATEDIFF(DAY, a.Edad, GETDATE()) / 365 AS 'EdadActual',
+	   p.NomPer AS 'NombrePersonaje'
+FROM actor a JOIN personaje p ON a.CodAct = p.CodAct
+WHERE DATEDIFF(DAY, a.Edad, GETDATE()) / 365 >= 18
+ORDER BY p.NomPer DESC;
 
 /*EJERCICIO 7
 Obtener el nombre y el apellido de cada actor almacenado en la base de datos, junto con el
 nombre del personaje que interpreta y el título de las películas de las que es protagonista, si no
 es protagonista aún de ninguna película, en lugar de salir el valor NULL, debe salir el mensaje
 "No es protagonista”. Utiliza alias para el título de la película que protagonizan.*/
-
+SELECT a.NomAct,
+	   a.ApeAct,
+	   p.NomPer,
+	   ISNULL(pel.Titulo, 'No es protagonista')
+FROM actor a JOIN personaje p ON a.CodAct = p.CodAct
+			 LEFT JOIN pelicula pel ON pel.CodPerProtagonista = p.CodPer
 
 /*EJERCICIO 8
 Por cada película mostrar el título y la edad media de los actores que interpretan los personajes
 que participan en la misma (no tener en cuenta al personaje protagonista). La edad media debe
 salir con uno o dos decimales. Ordenar ascendentemente por nombre de película. Utiliza alias
 para la columna edad media.*/
-
+SELECT pel.Titulo AS 'TituloPelicula',
+	   ROUND(AVG(CONVERT(FLOAT, DATEDIFF(DAY, a.Edad, GETDATE())/365)),2,1) AS 'EdadMedia'
+FROM pelicula pel JOIN participa_pel pa ON pel.CodPel = pa.CodPel
+				  JOIN personaje p ON pa.CodPer = p.CodPer
+				  JOIN actor a ON p.CodAct = a.CodAct
+GROUP BY pel.Titulo
+ORDER BY pel.Titulo
 
 /*EJERCICIO 9
 Obtener con una sola sentencia el título de todas las películas, el año de lanzamiento y nombre
@@ -103,6 +121,14 @@ del personaje protagonista, para las películas con un año de lanzamiento anterio
 las películas de 2020 o posteriores, obtener el título de la película, el año de lanzamiento y el
 nombre del director. Ordenar ascendentemente por año de lanzamiento. Utiliza como alias de
 columna para el nombre del personaje protagonista o del director el texto: 'Personaje o Director'.*/
+SELECT pel.Titulo, pel.Lanzamiento, p.NomPer AS 'Personaje o Director'
+FROM pelicula pel JOIN personaje p ON p.CodPer = pel.CodPerProtagonista
+WHERE pel.Lanzamiento < 2020
+UNION
+SELECT pel.Titulo, pel.Lanzamiento, pel.Director AS 'Personaje o Director'
+FROM pelicula pel
+WHERE pel.Lanzamiento >= 2020
+ORDER BY pel.Lanzamiento ASC
 
 
 /*EJERCICIO 10
@@ -110,7 +136,14 @@ Utilizando la sentencia adecuada del LMD de SQL, borra los personajes que cumple
 siguientes tres condiciones: que no sean protagonistas, que no participan en ninguna película y
 su nombre empiece por la letra E. La sentencia debe estar dentro de una transacción y cuando
 hayas comprobado que has realizado el ejercicio correctamente, debes deshacerla.*/
+BEGIN TRANSACTION
 
+DELETE FROM personaje
+WHERE (CodPer NOT IN (SELECT CodPerProtagonista FROM pelicula)
+	   AND CodPer NOT IN (SELECT CodPer FROM participa_pel)
+	   AND NomPer LIKE 'E%')
+
+ROLLBACK TRANSACTION
 
 /*EJERCICIO 11
 Ha habido un error cuando se ha almacenado en la base de datos la fecha de nacimiento de
@@ -119,3 +152,35 @@ sentencia adecuada del LMD de SQL, modifica la fecha de nacimiento de Isabel Sán
 que sea la misma que la de Javier Díaz. Solo conoces los nombres de los actores. La sentencia
 debe estar dentro de una transacción y cuando hayas comprobado que has realizado el
 ejercicio correctamente, debes deshacerla.*/
+BEGIN TRANSACTION
+
+UPDATE actor
+SET Edad = (SELECT Edad
+			FROM actor
+			WHERE NomAct = 'Javier' AND ApeAct = 'Díaz')
+WHERE NomAct = 'Isabel' AND ApeAct = 'Sánchez'
+
+ROLLBACK TRANSACTION
+
+/*EJERCICIO 12
+Obtener el título de cada película y la cantidad total de actores que han participado en 
+ella (incluyendo al protagonista y a los personajes secundarios). Si una película no tiene 
+actores asociados, debe aparecer el valor 0 en la columna de cantidad. Utiliza alias para 
+las columnas y ordena por el título de la película.*/
+SELECT pel.Titulo, ISNULL(COUNT(p.CodPel), 0)
+FROM pelicula pel LEFT JOIN participa_pel p ON pel.CodPel = p.CodPel
+GROUP BY pel.Titulo
+
+/*EJERCICIO 13
+Obtener el nombre completo (nombre y apellido) del actor y el título de la película en 
+la que su personaje es protagonista, pero solo para aquellas películas estrenadas después 
+del año 2020. Además, mostrar la cantidad de años transcurridos desde el lanzamiento de 
+la película hasta el día de hoy, utilizando el alias AniosTranscurridos. Ordena los 
+resultados de forma descendente según los años transcurridos.*/
+SELECT a.NomAct + ' ' + a.ApeAct AS 'Actor',
+	  pel.Titulo,
+	  DATEDIFF(YEAR, CONCAT(pel.Lanzamiento, '-01-01'), GETDATE()) AS AniosTranscurridos
+FROM actor a JOIN personaje per ON a.CodAct = per.CodAct
+			 JOIN pelicula pel ON per.CodPer = pel.CodPerProtagonista
+WHERE pel.Lanzamiento > 2020
+ORDER BY AniosTranscurridos DESC
