@@ -30,9 +30,9 @@ public class Lsal {
         return permissions;
     }
 
-     public static void main(String[] args) {
-       String path = ".";
-       File directory = new File(path);
+    public static void main(String[] args) {
+        String path = ".";
+        File directory = new File(path);
         if (!directory.exists() || !directory.isDirectory()) {
             System.out.println("La ruta especificada no es un directorio válido.");
         }
