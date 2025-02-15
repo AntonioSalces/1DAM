@@ -1,0 +1,20 @@
+Lewis Hamilton;Mercedes;44;Reino Unido;0
+Max Verstappen;Red Bull Racing;33;Países Bajos;0
+Charles Leclerc;Ferrari;16;Mónaco;0
+Valtteri Bottas;Alfa Romeo;77;Finlandia;0
+Sergio Pérez;Red Bull Racing;11;México;0
+Daniel Ricciardo;McLaren;3;Australia;0
+Lando Norris;McLaren;4;Reino Unido;0
+Sebastian Vettel;Aston Martin;5;Alemania;0
+Fernando Alonso;Alpine;14;España;0
+Esteban Ocon;Alpine;31;Francia;0
+Pierre Gasly;AlphaTauri;10;Francia;0
+Yuki Tsunoda;AlphaTauri;22;Japón;0
+Kimi Räikkönen;Alfa Romeo;7;Finlandia;0
+Nicholas Latifi;Williams;6;Canadá;0
+George Russell;Mercedes;63;Reino Unido;0
+Mick Schumacher;Haas;47;Alemania;0
+Nikita Mazepin;Haas;9;Rusia;0
+Robert Kubica;Alfa Romeo;88;Polonia;0
+Kevin Magnussen;Haas;20;Dinamarca;0
+Zhou Guanyu;Alfa Romeo;24;China;0
