@@ -33,3 +33,23 @@ CREATE TABLE def_factura
 	FOREIGN KEY (NumFac) REFERENCES factura(NumFac),
 	FOREIGN KEY (CodArt) REFERENCES articulo(CodArt)
 );
+
+INSERT INTO cliente(CodCli, NomCli, ApeCli, DNICli, Sexo, Ciudad)
+VALUES(1, 'Antonio', 'Salces', '12345678B', 'Femenino','Córdoba');
+
+--Comprobar CHECK DNICli
+INSERT INTO cliente(CodCli, NomCli, ApeCli, DNICli, Sexo, Ciudad)
+VALUES(2, 'Antonio', 'Salces', '123456789B', 'Femenino','Córdoba');
+
+--Comprobar CHECK Sexo
+INSERT INTO cliente(CodCli, NomCli, ApeCli, DNICli, Sexo, Ciudad)
+VALUES(2, 'Antonio', 'Salces', '12345678B', 'F','Córdoba');
+
+INSERT INTO factura(CodCli)
+VALUES(1);
+
+SELECT * FROM factura
+
+INSERT INTO factura(CodCli)
+VALUES(2);
+
