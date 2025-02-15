@@ -19,7 +19,7 @@ public class GestorPilotos {
         while ((linea = br.readLine()) != null) {
             String partes[] = linea.split(";");
 
-            if (partes.length == 4) {
+            if (partes.length == 5) {
                 String nombre = partes[0];
                 String equipo = partes[1];
                 int numero = Integer.parseInt(partes[2]);
