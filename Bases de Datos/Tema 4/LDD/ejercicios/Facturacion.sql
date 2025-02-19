@@ -35,7 +35,7 @@ CREATE TABLE def_factura
 );
 
 INSERT INTO cliente(CodCli, NomCli, ApeCli, DNICli, Sexo, Ciudad)
-VALUES(1, 'Antonio', 'Salces', '12345678B', 'Femenino','Córdoba');
+VALUES(3, 'Javier', 'Ballesteros', '12245679B', 'Masculino','Córdoba');
 
 --Comprobar CHECK DNICli
 INSERT INTO cliente(CodCli, NomCli, ApeCli, DNICli, Sexo, Ciudad)
@@ -51,5 +51,41 @@ VALUES(1);
 SELECT * FROM factura
 
 INSERT INTO factura(CodCli)
-VALUES(2);
+VALUES(3);
 
+
+--Crear vista de una única tabla
+CREATE VIEW primerasFacturas
+AS (SELECT * FROM factura WHERE NumFac < 9);
+
+SELECT * FROM primerasFacturas;
+
+--Crear vista de dos tablas unidas
+CREATE VIEW facturasClienteTres
+AS (SELECT c.NomCli, c.ApeCli, c.Ciudad, f.NumFac, f.FechFac FROM cliente c 
+	JOIN factura f ON f.CodCli = c.CodCli
+	WHERE c.CodCli = 3);
+
+SELECT * FROM facturasClienteTres;
+
+--Modificar datos de primerasFacturas
+SELECT * FROM primerasFacturas;
+
+UPDATE primerasFacturas
+SET FechFac = GETDATE()
+WHERE NumFac = 3;
+
+--Intertar modificar un dato que no se puede ver en primerasFacturas. No se puede hacer
+UPDATE primerasFacturas
+SET FechFac = GETDATE()
+WHERE NumFac = 9;
+
+--Modificar datos de facturasClienteTres. Se puede hacer
+SELECT * FROM facturasClienteTres;
+
+UPDATE facturasClienteTres
+SET NomCli = 'Antonio'
+WHERE NomCli = 'Javier';
+
+--Aqui podemos ver como ha cambiado el nombre de "Javier" a "Antonio"
+SELECT * FROM cliente;

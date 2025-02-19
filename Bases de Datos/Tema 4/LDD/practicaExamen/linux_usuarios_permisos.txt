@@ -1,0 +1,83 @@
+GESTIÓN DE USUARIOS, PERMISOS Y FICHEROS EN LINUX
+
+---
+
+1. USUARIOS
+
+- Crear un usuario:
+  sudo useradd -m usuario1
+  Esto crea un nuevo usuario con su directorio personal en /home/usuario1.
+
+- Modificar un usuario:
+  sudo usermod -l nuevo_nombre usuario1
+  Cambia el nombre de usuario1 a nuevo_nombre.
+
+- Eliminar un usuario:
+  sudo userdel -r usuario1
+  Elimina al usuario y su directorio personal.
+
+- Cambiar la contraseña de un usuario:
+  sudo passwd usuario1
+  Solicita una nueva contraseña para usuario1.
+
+---
+
+2. PERMISOS
+
+- Cambiar permisos de un archivo:
+  chmod 755 script.sh
+  Asigna permisos de lectura y ejecución a todos, pero solo escritura al dueño.
+
+- Cambiar propietario de un archivo:
+  sudo chown usuario1:grupo1 archivo.txt
+  Asigna usuario1 como dueño y grupo1 como grupo del archivo.
+
+---
+
+3. GRUPOS
+
+- Crear un grupo:
+  sudo groupadd grupo1
+  Crea el grupo grupo1.
+
+- Añadir un usuario a un grupo:
+  sudo usermod -aG grupo1 usuario1
+  Añade usuario1 al grupo grupo1.
+
+- Eliminar un grupo:
+  sudo groupdel grupo1
+  Borra el grupo grupo1.
+
+---
+
+4. FICHEROS
+
+- Mostrar el directorio actual:
+  pwd
+
+- Crear un directorio:
+  mkdir nuevo_directorio
+
+- Cambiar de directorio:
+  cd nuevo_directorio
+
+- Eliminar archivos y directorios:
+  rm archivo.txt
+  rm -r directorio
+
+- Mostrar contenido de un archivo:
+  cat archivo.txt
+
+- Mostrar las primeras y últimas 10 líneas de un archivo:
+  head archivo.txt
+  tail archivo.txt
+
+- Buscar patrones en archivos:
+  egrep 'error|warning' /var/log/syslog
+
+- Ordenar contenido de un archivo:
+  sort nombres.txt
+
+---
+
+Este documento resume comandos esenciales para gestionar usuarios, permisos y archivos en Linux.
