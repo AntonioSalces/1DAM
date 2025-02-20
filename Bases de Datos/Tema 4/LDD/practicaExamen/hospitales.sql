@@ -84,3 +84,31 @@ WHERE (Presupuesto < 5000) AND
 		
 
 ROLLBACK TRANSACTION
+
+SELECT NomHost
+FROM hospital
+WHERE TipHos LIKE 'Concertado' AND
+	EXISTS (SELECT *
+			FROM HosMed
+			WHERE DATEDIFF(YEAR, FecIni, GETDATE()) > 2
+);
+
+SELECT m.NomMed
+FROM medico m
+JOIN HosMed h ON m.CodMed = h.CodMed
+JOIN hospital hos ON h.CodHos = hos.CodHos
+WHERE m.esJefe IS NULL AND
+TipHos LIKE 'Concertado' AND
+YEAR(h.FecIni) BETWEEN 2020 AND 2022;
+
+CREATE INDEX nombreHospitales
+ON hospital(NomHost
+);
+
+CREATE VIEW hospitalYMedicos
+AS (SELECT h.NomHost, ISNULL(COUNT(n.CodMed), 0) AS 'Total de médicos'
+	FROM hospital h LEFT JOIN HosMed n ON h.CodHos = n.CodHos
+	GROUP BY h.NomHost
+);
+
+SELECT * FROM hospitalYMedicos
