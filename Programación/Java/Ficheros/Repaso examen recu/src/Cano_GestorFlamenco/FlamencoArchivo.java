@@ -10,13 +10,19 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class FlamencoArchivo {
+    private String fileName;
 
-    public FlamencoArchivo(String file) {
-        createFile(file);
+    public FlamencoArchivo(String nombreArchivo) {
+        this.fileName = nombreArchivo;
+        createFile();
     }
 
-    public File createFile(String name) {
-        File file = new File(name);
+    public String getFileName() {
+        return fileName;
+    }
+
+    public File createFile() {
+        File file = new File(fileName);
         if (!file.exists()) {
             try {
                 file.createNewFile();
@@ -28,7 +34,7 @@ public class FlamencoArchivo {
     }
 
     public void writeFile(String name, String phrase) {
-        createFile(name);
+        createFile();
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter(name, true));
             bw.write(phrase);
